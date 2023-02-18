@@ -1,0 +1,9 @@
+- Adicionar marketing:
+
+    INSERT INTO marketing SET affiliate_ad='Anúncio de teste', affiliate_link='https://google.com', product_link='https://google.com', requests=0, clicks=0, keyword='teste', is_active=true, created_at=NOW()
+
+- Tipos de monitoramento:
+    - 1: REQUEST
+    - 2: CLICK
+    - 3: SHARE
+    - 4: WHATSAPP

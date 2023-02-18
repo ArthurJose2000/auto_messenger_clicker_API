@@ -2,12 +2,12 @@
 
 include "../connection.php";
 
-function track_robot($db_name, $db_host, $db_user, $db_password, $user_code) {
+function track_robot($db_name, $db_host, $db_user, $db_password, $device_id) {
     $pdo = connectToDB($db_name, $db_host, $db_user, $db_password);
     $response_to_app = new stdClass();
 
-    $query = $pdo->prepare("SELECT * FROM users WHERE user_code=:user_code");
-    $query->bindValue(":user_code", "$user_code");
+    $query = $pdo->prepare("SELECT * FROM users WHERE device_id=:device_id");
+    $query->bindValue(":device_id", "$device_id");
     $query->execute();
     $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -30,6 +30,6 @@ function track_robot($db_name, $db_host, $db_user, $db_password, $user_code) {
 }
 
 $json = json_decode(file_get_contents('php://input'));
-echo track_robot($db_name, $db_host, $db_user, $db_password, $json->user_code);
+echo track_robot($db_name, $db_host, $db_user, $db_password, $json->device_id);
 
 ?>
