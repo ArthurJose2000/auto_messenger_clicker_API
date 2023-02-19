@@ -36,7 +36,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
     $marketing_id = $res[$random_index]['id'];
     $marketing_affiliate_ad = $res[$random_index]['affiliate_ad'];
     $marketing_affiliate_link = $res[$random_index]['affiliate_link'];
-    $marketing_product_link = $res[$random_index]['product_link'];
     $marketing_keyword = $res[$random_index]['keyword'];
 
     $marketing_behavior_obj = new MarketingBehavior();
@@ -48,7 +47,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
 
     $response_to_app->id = $marketing_id;
     $response_to_app->affiliate_link = $marketing_affiliate_link;
-    $response_to_app->product_link = $marketing_product_link;
     $response_to_app->message = 'SUCCESS';
     $response_to_app->success = true;
     return json_encode($response_to_app);

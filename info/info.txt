@@ -1,0 +1,18 @@
+- Adicionar marketing:
+
+    INSERT INTO marketing SET affiliate_ad='Anúncio de teste', affiliate_link='https://google.com', product_image='PQoAhgt2eLg5923f.jpeg', keyword='teste', is_active=true, created_at=NOW()
+
+- Tipos de monitoramento:
+    - 1: REQUEST
+    - 2: CLICK
+    - 3: SHARE
+
+- O que falta:
+    - testar funcionalidade de código amigo em desenvolvimento
+    - atualizar política de privacidade do app
+    - criar um banco para produção
+    - submeter uma versão para testes
+    - testar funcionalidade premium
+    - testar o robô
+    - testar funcionalidade de código amigo em produção
+    - popular o banco de dados com os anúncios
