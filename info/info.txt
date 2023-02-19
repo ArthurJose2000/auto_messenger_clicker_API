@@ -10,8 +10,8 @@
 - O que falta:
     - OK testar funcionalidade de código amigo em desenvolvimento
     - OK atualizar política de privacidade do app
-    - criar um banco para produção
-    - popular o banco de dados com os anúncios
+    - OK criar um banco para produção
+    - OK popular o banco de dados com os anúncios
     - submeter uma versão para testes
     - testar funcionalidade premium
     - testar o robô
