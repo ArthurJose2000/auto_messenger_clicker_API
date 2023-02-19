@@ -1,11 +1,9 @@
 <?php
 
-enum MarketBehavior
-{
-    case REQUEST;
-    case CLICK;
-    case SHARE;
-    case WHATSAPP;
+class MarketingBehavior {
+    public $REQUEST = 1;
+    public $CLICK = 2;
+    public $SHARE = 3;
 }
 
 ?>

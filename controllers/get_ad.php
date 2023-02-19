@@ -39,12 +39,14 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
     $marketing_product_link = $res[$random_index]['product_link'];
     $marketing_keyword = $res[$random_index]['keyword'];
 
-    $marketing_behavior = MarketingBehavior::REQUEST;
+    $marketing_behavior_obj = new MarketingBehavior();
+    $marketing_behavior = $marketing_behavior_obj->REQUEST;
 
-    // Tracket market
+    // Tracket marketing
     $current_datetime = date("Y-m-d H:i:s");
     $query = $pdo->query("INSERT INTO track_marketing SET user_id='$user_id', marketing_id='$marketing_id', behavior='$marketing_behavior', keyword='$marketing_keyword', datetime='$current_datetime'");
 
+    $response_to_app->id = $marketing_id;
     $response_to_app->affiliate_link = $marketing_affiliate_link;
     $response_to_app->product_link = $marketing_product_link;
     $response_to_app->message = 'SUCCESS';
@@ -53,6 +55,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
 }
 
 $json = json_decode(file_get_contents('php://input'));
-echo get_ad($db_name, $db_host, $db_user, $db_password, $json->user_code);
+echo get_ad($db_name, $db_host, $db_user, $db_password, $json->device_id);
 
 ?>
