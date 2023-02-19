@@ -8,11 +8,11 @@
     - 3: SHARE
 
 - O que falta:
-    - testar funcionalidade de código amigo em desenvolvimento
-    - atualizar política de privacidade do app
+    - OK testar funcionalidade de código amigo em desenvolvimento
+    - OK atualizar política de privacidade do app
     - criar um banco para produção
+    - popular o banco de dados com os anúncios
     - submeter uma versão para testes
     - testar funcionalidade premium
     - testar o robô
     - testar funcionalidade de código amigo em produção
-    - popular o banco de dados com os anúncios

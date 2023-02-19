@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Fev-2023 às 03:13
+-- Tempo de geração: 19-Fev-2023 às 16:19
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -31,7 +31,7 @@ CREATE TABLE `marketing` (
   `id` int(11) NOT NULL,
   `affiliate_ad` varchar(255) NOT NULL,
   `affiliate_link` varchar(255) NOT NULL,
-  `product_link` varchar(256) NOT NULL,
+  `product_image` varchar(256) NOT NULL,
   `keyword` varchar(255) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL
@@ -41,10 +41,10 @@ CREATE TABLE `marketing` (
 -- Extraindo dados da tabela `marketing`
 --
 
-INSERT INTO `marketing` (`id`, `affiliate_ad`, `affiliate_link`, `product_link`, `keyword`, `is_active`, `created_at`) VALUES
-(2, 'Anúncio de teste', 'https://manualdosvideos.com.br/celular', 'https://google.com', 'teste', 1, '2023-02-18 14:21:00'),
-(3, 'Anúncio de teste 2', 'https://manualdosvideos.com.br/celular', 'https://google.com', 'teste', 1, '2023-02-18 14:22:31'),
-(4, 'Anúncio de teste 3', 'https://manualdosvideos.com.br/celular', 'https://google.com', 'teste', 1, '2023-02-18 14:23:48');
+INSERT INTO `marketing` (`id`, `affiliate_ad`, `affiliate_link`, `product_image`, `keyword`, `is_active`, `created_at`) VALUES
+(2, 'Anúncio de teste', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:21:00'),
+(3, 'Anúncio de teste 2', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:22:31'),
+(4, 'Anúncio de teste 3', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:23:48');
 
 -- --------------------------------------------------------
 
@@ -84,7 +84,35 @@ INSERT INTO `track_marketing` (`id`, `user_id`, `marketing_id`, `behavior`, `key
 (56, 11, 2, 1, 'teste', '2023-02-18 23:08:14'),
 (57, 11, 2, 2, 'teste', '2023-02-18 23:08:45'),
 (58, 11, 2, 1, 'teste', '2023-02-18 23:10:07'),
-(59, 11, 2, 2, 'teste', '2023-02-18 23:10:22');
+(59, 11, 2, 2, 'teste', '2023-02-18 23:10:22'),
+(60, 11, 2, 1, 'teste', '2023-02-18 23:29:17'),
+(61, 11, 3, 1, 'teste', '2023-02-18 23:31:21'),
+(62, 11, 4, 1, 'teste', '2023-02-18 23:31:37'),
+(63, 11, 4, 1, 'teste', '2023-02-18 23:32:39'),
+(64, 11, 3, 1, 'teste', '2023-02-18 23:33:42'),
+(65, 11, 3, 1, 'teste', '2023-02-18 23:34:49'),
+(66, 11, 2, 1, 'teste', '2023-02-18 23:35:30'),
+(67, 11, 4, 1, 'teste', '2023-02-18 23:35:35'),
+(68, 11, 2, 1, 'teste', '2023-02-18 23:37:25'),
+(69, 11, 2, 3, 'teste', '2023-02-18 23:37:53'),
+(70, 11, 2, 2, 'teste', '2023-02-18 23:39:14'),
+(71, 11, 4, 1, 'teste', '2023-02-18 23:40:57'),
+(72, 11, 4, 3, 'teste', '2023-02-18 23:41:12'),
+(73, 11, 2, 1, 'teste', '2023-02-18 23:42:08'),
+(74, 11, 3, 1, 'teste', '2023-02-18 23:42:36'),
+(75, 11, 3, 1, 'teste', '2023-02-19 02:54:11'),
+(76, 11, 4, 1, 'teste', '2023-02-19 02:54:31'),
+(77, 11, 4, 1, 'teste', '2023-02-19 02:55:32'),
+(78, 11, 2, 1, 'teste', '2023-02-19 02:55:48'),
+(79, 11, 2, 3, 'teste', '2023-02-19 02:55:54'),
+(80, 11, 2, 2, 'teste', '2023-02-19 02:56:27'),
+(81, 11, 2, 1, 'teste', '2023-02-19 03:20:50'),
+(82, 11, 4, 1, 'teste', '2023-02-19 03:23:16'),
+(83, 11, 3, 1, 'teste', '2023-02-19 03:24:25'),
+(84, 11, 2, 1, 'teste', '2023-02-19 03:24:42'),
+(85, 11, 2, 2, 'teste', '2023-02-19 03:35:54'),
+(86, 11, 2, 1, 'teste', '2023-02-19 11:51:20'),
+(87, 11, 2, 2, 'teste', '2023-02-19 11:56:21');
 
 -- --------------------------------------------------------
 
@@ -111,7 +139,37 @@ INSERT INTO `track_robot` (`id`, `user_id`, `datetime`) VALUES
 (88, 10, '2023-02-14 20:00:17'),
 (89, 10, '2023-02-14 20:01:01'),
 (90, 10, '2023-02-14 20:01:06'),
-(91, 11, '2023-02-18 23:10:21');
+(91, 11, '2023-02-18 23:10:21'),
+(92, 11, '2023-02-19 11:52:00'),
+(93, 11, '2023-02-19 11:52:14'),
+(94, 11, '2023-02-19 11:52:17'),
+(95, 11, '2023-02-19 11:52:23'),
+(96, 11, '2023-02-19 11:52:26'),
+(97, 11, '2023-02-19 11:52:28'),
+(98, 11, '2023-02-19 11:52:30'),
+(99, 11, '2023-02-19 11:52:36'),
+(100, 11, '2023-02-19 11:52:38'),
+(101, 11, '2023-02-19 11:52:48'),
+(102, 11, '2023-02-19 11:52:51'),
+(103, 11, '2023-02-19 11:52:53'),
+(104, 11, '2023-02-19 11:52:55'),
+(105, 11, '2023-02-19 11:52:56'),
+(106, 11, '2023-02-19 11:56:20'),
+(107, 11, '2023-02-19 11:56:27'),
+(108, 11, '2023-02-19 11:56:29'),
+(109, 11, '2023-02-19 11:56:31'),
+(110, 11, '2023-02-19 11:56:33'),
+(111, 11, '2023-02-19 11:56:34'),
+(112, 11, '2023-02-19 11:56:36'),
+(113, 11, '2023-02-19 11:56:48'),
+(114, 11, '2023-02-19 11:59:52'),
+(115, 11, '2023-02-19 11:59:54'),
+(116, 11, '2023-02-19 11:59:55'),
+(117, 11, '2023-02-19 11:59:57'),
+(118, 11, '2023-02-19 11:59:58'),
+(119, 11, '2023-02-19 12:00:00'),
+(120, 11, '2023-02-19 12:00:01'),
+(121, 11, '2023-02-19 12:00:03');
 
 -- --------------------------------------------------------
 
@@ -135,7 +193,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `device_id`, `user_code`, `user_code_use`, `bot_use`, `app_use`, `last_entry`, `created_at`) VALUES
-(11, '728b11d65494dc89', 'XPB3N9', 0, 1, 56, '2023-02-18 23:10:21', '2023-02-18 13:05:29');
+(11, '728b11d65494dc89', 'EPH4PD', 0, 31, 78, '2023-02-19 12:00:03', '2023-02-18 13:05:29'),
+(12, '234abcd3', 'AEAEAE', 2, 0, 0, '2023-02-19 11:55:39', '2023-02-19 11:55:39'),
+(13, '233abcd3', 'AEAEAE', 1, 0, 0, '2023-02-19 11:57:12', '2023-02-19 11:57:12');
 
 --
 -- Índices para tabelas despejadas
@@ -179,19 +239,19 @@ ALTER TABLE `marketing`
 -- AUTO_INCREMENT de tabela `track_marketing`
 --
 ALTER TABLE `track_marketing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de tabela `track_robot`
 --
 ALTER TABLE `track_robot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

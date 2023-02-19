@@ -30,7 +30,7 @@ function unlock_features($db_name, $db_host, $db_user, $db_password, $device_id,
         return json_encode($response_to_app);
     }
 
-    $friend_id = $res[0]['id'];
+    $friend_id = $res[$last_index]['id'];
     $query = $pdo->query("UPDATE users SET user_code_use=user_code_use+1 WHERE id='$friend_id'");
 
     $response_to_app->message = 'SUCCESS';
