@@ -12,7 +12,7 @@
     - OK atualizar política de privacidade do app
     - OK criar um banco para produção
     - OK popular o banco de dados com os anúncios
-    - submeter uma versão para testes
+    - OK submeter uma versão para testes
     - testar funcionalidade premium
     - testar o robô
     - testar funcionalidade de código amigo em produção
