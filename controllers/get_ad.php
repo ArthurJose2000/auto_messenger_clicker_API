@@ -20,6 +20,17 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
     }
 
     $user_id = $res[0]['id'];
+    $bot_use = $res[0]['bot_use'];
+    
+    // Show tutorial ad to user
+    if ($bot_use == 0) {
+        $tutorial_id = 26;
+        $response_to_app->id = $tutorial_id;
+        $response_to_app->affiliate_link = "https://youtu.be/PCGr105dG9k";
+        $response_to_app->message = 'SUCCESS';
+        $response_to_app->success = true;
+        return json_encode($response_to_app);
+    }
 
     // Getting marketing
     $query = $pdo->query("SELECT * FROM marketing WHERE is_active=1");
@@ -34,7 +45,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
 
     $random_index = random_int(0, $count - 1);
     $marketing_id = $res[$random_index]['id'];
-    $marketing_affiliate_ad = $res[$random_index]['affiliate_ad'];
     $marketing_affiliate_link = $res[$random_index]['affiliate_link'];
     $marketing_keyword = $res[$random_index]['keyword'];
 

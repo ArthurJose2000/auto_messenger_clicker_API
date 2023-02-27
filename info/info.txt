@@ -16,3 +16,6 @@
     - testar funcionalidade premium
     - testar o robô
     - testar funcionalidade de código amigo em produção
+
+ALTER TABLE `users` ADD COLUMN `is_premium` boolean AFTER `user_code`;
+UPDATE `users` SET is_premium=0;
