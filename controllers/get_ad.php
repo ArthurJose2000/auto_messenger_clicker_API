@@ -21,19 +21,21 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
 
     $user_id = $res[0]['id'];
     $bot_use = $res[0]['bot_use'];
+    $language = $res[0]['language'];
     
     // Show tutorial ad to user
     if ($bot_use == 0) {
-        $tutorial_id = 26;
+        $is_pt = $language == "pt";
+        $tutorial_id = $is_pt ? 26 : 27;
         $response_to_app->id = $tutorial_id;
-        $response_to_app->affiliate_link = "https://youtu.be/PCGr105dG9k";
+        $response_to_app->affiliate_link = $is_pt ? "https://youtu.be/PCGr105dG9k" : "https://youtu.be/iUXXmXBzamo";
         $response_to_app->message = 'SUCCESS';
         $response_to_app->success = true;
         return json_encode($response_to_app);
     }
 
     // Getting marketing
-    $query = $pdo->query("SELECT * FROM marketing WHERE is_active=1");
+    $query = $pdo->query("SELECT * FROM marketing WHERE is_active=1 AND language='$language'");
     $res = $query->fetchAll(PDO::FETCH_ASSOC);
     $count = count($res);
 
@@ -63,6 +65,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id) {
 }
 
 $json = json_decode(file_get_contents('php://input'));
-echo get_ad($db_name, $db_host, $db_user, $db_password, $json->device_id);
+echo get_ad($db_name, $db_host, $db_user, $db_password, $json->device_id, $json->country);
 
 ?>

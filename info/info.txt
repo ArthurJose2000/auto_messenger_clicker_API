@@ -19,3 +19,10 @@
 
 ALTER TABLE `users` ADD COLUMN `is_premium` boolean AFTER `user_code`;
 UPDATE `users` SET is_premium=0;
+
+ALTER TABLE `users` ADD COLUMN `country` VARCHAR(10) NULL AFTER `app_use`, ADD COLUMN `language` VARCHAR(10) NULL AFTER `app_use`;
+UPDATE `users` SET country='BR';
+UPDATE `users` SET language='pt';
+ALTER TABLE `marketing` ADD COLUMN `country` VARCHAR(10) NULL AFTER `keyword`, ADD COLUMN `language` VARCHAR(10) NULL AFTER `keyword`;
+UPDATE `marketing` SET country='BR';
+UPDATE `marketing` SET language='pt';

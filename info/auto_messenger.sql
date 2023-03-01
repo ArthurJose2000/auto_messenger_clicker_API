@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Fev-2023 às 16:19
+-- Tempo de geração: 01-Mar-2023 às 04:57
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 7.4.29
 
@@ -33,6 +33,8 @@ CREATE TABLE `marketing` (
   `affiliate_link` varchar(255) NOT NULL,
   `product_image` varchar(256) NOT NULL,
   `keyword` varchar(255) NOT NULL,
+  `language` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -41,10 +43,10 @@ CREATE TABLE `marketing` (
 -- Extraindo dados da tabela `marketing`
 --
 
-INSERT INTO `marketing` (`id`, `affiliate_ad`, `affiliate_link`, `product_image`, `keyword`, `is_active`, `created_at`) VALUES
-(2, 'Anúncio de teste', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:21:00'),
-(3, 'Anúncio de teste 2', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:22:31'),
-(4, 'Anúncio de teste 3', 'https://manualdosvideos.com.br/celular', 'PQoAhgt2eLg5923f.jpeg', 'teste', 1, '2023-02-18 14:23:48');
+INSERT INTO `marketing` (`id`, `affiliate_ad`, `affiliate_link`, `product_image`, `keyword`, `language`, `country`, `is_active`, `created_at`) VALUES
+(2, 'Tutorial', 'https://manualdosvideos.com.br/celular', 'tutorial.gif', 'teste', 'pt', 'BR', 1, '2023-02-18 14:21:00'),
+(3, 'Anúncio de teste 2', 'https://manualdosvideos.com.br/celular', 'tutorial.gif', 'teste', 'pt', 'BR', 1, '2023-02-18 14:22:31'),
+(4, 'Anúncio de teste 3', 'https://manualdosvideos.com.br/celular', 'tutorial.gif', 'teste', 'pt', 'BR', 1, '2023-02-18 14:23:48');
 
 -- --------------------------------------------------------
 
@@ -112,7 +114,16 @@ INSERT INTO `track_marketing` (`id`, `user_id`, `marketing_id`, `behavior`, `key
 (84, 11, 2, 1, 'teste', '2023-02-19 03:24:42'),
 (85, 11, 2, 2, 'teste', '2023-02-19 03:35:54'),
 (86, 11, 2, 1, 'teste', '2023-02-19 11:51:20'),
-(87, 11, 2, 2, 'teste', '2023-02-19 11:56:21');
+(87, 11, 2, 2, 'teste', '2023-02-19 11:56:21'),
+(88, 11, 3, 1, 'teste', '2023-02-24 10:14:58'),
+(89, 11, 4, 1, 'teste', '2023-02-24 10:15:28'),
+(90, 11, 4, 1, 'teste', '2023-02-24 10:17:05'),
+(91, 11, 3, 1, 'teste', '2023-02-27 01:42:47'),
+(92, 11, 3, 2, 'teste', '2023-02-27 01:43:32'),
+(93, 14, 4, 1, 'teste', '2023-02-27 01:57:33'),
+(94, 15, 3, 1, 'teste', '2023-02-27 02:02:24'),
+(95, 15, 2, 1, 'teste', '2023-02-27 02:02:50'),
+(96, 15, 3, 1, 'teste', '2023-02-27 02:03:47');
 
 -- --------------------------------------------------------
 
@@ -169,7 +180,28 @@ INSERT INTO `track_robot` (`id`, `user_id`, `datetime`) VALUES
 (118, 11, '2023-02-19 11:59:58'),
 (119, 11, '2023-02-19 12:00:00'),
 (120, 11, '2023-02-19 12:00:01'),
-(121, 11, '2023-02-19 12:00:03');
+(121, 11, '2023-02-19 12:00:03'),
+(122, 11, '2023-02-24 10:17:52'),
+(123, 11, '2023-02-24 10:18:00'),
+(124, 11, '2023-02-24 10:18:03'),
+(125, 11, '2023-02-24 10:18:05'),
+(126, 11, '2023-02-24 10:18:07'),
+(127, 11, '2023-02-24 10:18:08'),
+(128, 11, '2023-02-24 10:18:10'),
+(129, 11, '2023-02-24 10:18:11'),
+(130, 11, '2023-02-24 10:18:13'),
+(131, 11, '2023-02-24 10:18:14'),
+(132, 11, '2023-02-24 10:18:16'),
+(133, 11, '2023-02-24 10:18:17'),
+(134, 11, '2023-02-24 10:18:19'),
+(135, 11, '2023-02-24 10:18:20'),
+(136, 11, '2023-02-24 10:18:21'),
+(137, 11, '2023-02-24 10:18:23'),
+(138, 11, '2023-02-24 10:18:24'),
+(139, 11, '2023-02-24 10:18:26'),
+(140, 11, '2023-02-24 10:18:27'),
+(141, 11, '2023-02-24 10:18:29'),
+(142, 11, '2023-02-24 10:18:30');
 
 -- --------------------------------------------------------
 
@@ -181,9 +213,12 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `device_id` varchar(256) NOT NULL,
   `user_code` varchar(255) NOT NULL,
+  `is_premium` tinyint(1) DEFAULT NULL,
   `user_code_use` int(11) NOT NULL,
   `bot_use` int(11) NOT NULL,
   `app_use` int(11) NOT NULL,
+  `language` varchar(10) DEFAULT NULL,
+  `country` varchar(10) DEFAULT NULL,
   `last_entry` datetime NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -192,10 +227,10 @@ CREATE TABLE `users` (
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id`, `device_id`, `user_code`, `user_code_use`, `bot_use`, `app_use`, `last_entry`, `created_at`) VALUES
-(11, '728b11d65494dc89', 'EPH4PD', 0, 31, 78, '2023-02-19 12:00:03', '2023-02-18 13:05:29'),
-(12, '234abcd3', 'AEAEAE', 2, 0, 0, '2023-02-19 11:55:39', '2023-02-19 11:55:39'),
-(13, '233abcd3', 'AEAEAE', 1, 0, 0, '2023-02-19 11:57:12', '2023-02-19 11:57:12');
+INSERT INTO `users` (`id`, `device_id`, `user_code`, `is_premium`, `user_code_use`, `bot_use`, `app_use`, `language`, `country`, `last_entry`, `created_at`) VALUES
+(12, '234abcd3', 'AEAEAE', 0, 0, 0, 0, 'pt', 'BR', '2023-02-19 11:55:39', '2023-02-19 11:55:39'),
+(13, '233abcd3', 'AEAEAE', 0, 1, 0, 0, 'pt', 'BR', '2023-02-19 11:57:12', '2023-02-19 11:57:12'),
+(15, '728b11d65494dc89', 'M9R3CP', 0, 0, 0, 3, 'pt', 'BR', '2023-02-27 02:03:47', '2023-02-27 02:02:23');
 
 --
 -- Índices para tabelas despejadas
@@ -239,19 +274,19 @@ ALTER TABLE `marketing`
 -- AUTO_INCREMENT de tabela `track_marketing`
 --
 ALTER TABLE `track_marketing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT de tabela `track_robot`
 --
 ALTER TABLE `track_robot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
