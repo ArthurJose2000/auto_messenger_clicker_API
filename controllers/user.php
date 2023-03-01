@@ -15,7 +15,7 @@ function user_check($db_name, $db_host, $db_user, $db_password, $device_id, $use
 
     // If user was not found then create the user. If user was found, then update it
     if (count($res) == 0) {
-        $query = $pdo->query("INSERT INTO users SET device_id=:device_id, user_code=:user_code, is_premium=0, user_code_use=0, bot_use=0, app_use=1, language=:language, country=:country, last_entry='$current_datetime', created_at='$current_datetime'");
+        $query = $pdo->prepare("INSERT INTO users SET device_id=:device_id, user_code=:user_code, is_premium=0, user_code_use=0, bot_use=0, app_use=1, language=:language, country=:country, last_entry='$current_datetime', created_at='$current_datetime'");
         $query->bindValue(":device_id", "$device_id");
         $query->bindValue(":user_code", "$user_code");
         $query->bindValue(":language", "$language");
