@@ -35,7 +35,7 @@ function track_marketing($db_name, $db_host, $db_user, $db_password, $device_id,
 
     $marketing_keyword = $res[0]['keyword'];
 
-    // Tracket marketing
+    // Track marketing
     $current_datetime = date("Y-m-d H:i:s");
     $query = $pdo->prepare("INSERT INTO track_marketing SET user_id='$user_id', marketing_id='$marketing_id', behavior=:marketing_behavior, keyword='$marketing_keyword', datetime='$current_datetime'");
     $query->bindValue(":marketing_behavior", "$marketing_behavior");
