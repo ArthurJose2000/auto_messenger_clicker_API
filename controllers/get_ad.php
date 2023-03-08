@@ -42,6 +42,7 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $languag
     if (count($res) != 0) {
         $user_id = $res[0]['id'];
         $bot_use = $res[0]['bot_use'];
+        $language = $res[0]['language']; // this line will be usefull in future. it's just for old users that don't send '$language'
     }
     
     // Show tutorial ad to user if $bot_use == 0
