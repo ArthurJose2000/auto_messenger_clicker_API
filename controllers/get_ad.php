@@ -20,7 +20,7 @@ function tutorial($pdo, $language, $user_id) {
 
     $response_to_app = new stdClass();
     $response_to_app->id = $marketing_id;
-    $response_to_app->affiliate_link = $is_pt ? "https://youtu.be/PCGr105dG9k" : "https://youtu.be/iUXXmXBzamo";
+    $response_to_app->affiliate_link = $is_pt ? "https://youtu.be/I-Dg4Ua_tQc" : "https://youtu.be/tw-_GwFCueE";
     $response_to_app->message = 'SUCCESS';
     $response_to_app->success = true;
     return json_encode($response_to_app);
