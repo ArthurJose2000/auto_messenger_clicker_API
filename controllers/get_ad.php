@@ -26,7 +26,7 @@ function tutorial($pdo, $language, $user_id) {
     return json_encode($response_to_app);
 }
 
-function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $language, $country) {
+function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $language, $country, $marketing_flag) {
     $pdo = connectToDB($db_name, $db_host, $db_user, $db_password);
     $response_to_app = new stdClass();
 
@@ -46,7 +46,7 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $languag
     }
     
     // Show tutorial ad to user if $bot_use == 0
-    if ($bot_use == 0)
+    if ($bot_use == 0 && $marketing_flag != true)
         return tutorial($pdo, $language, $user_id);
 
     // Getting marketing
@@ -54,6 +54,7 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $languag
     $res = $query->fetchAll(PDO::FETCH_ASSOC);
     $count = count($res);
 
+    // If there is not marketing to the country, only show tutorial
     if ($count == 0)
        return tutorial($pdo, $language, $user_id);
 
@@ -77,6 +78,6 @@ function get_ad($db_name, $db_host, $db_user, $db_password, $device_id, $languag
 }
 
 $json = json_decode(file_get_contents('php://input'));
-echo get_ad($db_name, $db_host, $db_user, $db_password, $json->device_id, @$json->language, @$json->country);
+echo get_ad($db_name, $db_host, $db_user, $db_password, $json->device_id, @$json->language, @$json->country, @$json->marketing_flag);
 
 ?>
